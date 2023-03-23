@@ -2,9 +2,11 @@
   "name": "weather-app",
   "version": "1.0.0",
   "description": "Weather app with API",
-  "private":true,
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open",
     "build": "webpack"
   },
   "repository": {
@@ -20,6 +22,7 @@
   "devDependencies": {
     "dotenv": "^16.0.3",
     "webpack": "^5.76.3",
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.1"
   }
 }
