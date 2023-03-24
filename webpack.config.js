@@ -1,4 +1,5 @@
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     mode: 'development',
@@ -10,10 +11,19 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     devtool: 'inline-source-map',
-    devServer: {
-        static: './dist',
-    },
-    optimization: {
-        runtimeChunk: 'single',
+    plugins: [
+        new Dotenv()
+    ],
+    module: {
+        rules: [
+            {
+                test:/\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test:/\.(png|svg|jpeg|jpg|gif)$/i,
+                type: 'asset/resource',
+            }
+        ],
     },
 };
