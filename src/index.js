@@ -1,13 +1,20 @@
+import weather from "./modules/weather";
+import view from "./modules/view";
 import './style.css';
-import {createHeader, createMain, createFooter} from './modules/barebone.js';
 
-function initializeWebsite() {
-    const content = document.getElementById("content");
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
 
-    content.appendChild(createHeader());
-    content.appendChild(createMain());
-    content.appendChild(createFooter());
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
 
-}
+searchBtn.addEventListener("click", async () => {
 
-initializeWebsite();
+    console.log()
+
+  if (searchInput.value === "") return;
+  const weatherData = await weather.getData(searchInput.value);
+  view.setSearchResult(weatherData);
+});
