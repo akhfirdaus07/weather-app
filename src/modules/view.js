@@ -20,3 +20,5 @@ const view = (() => {
 
   return { setSearchResult };
 })();
+
+export default view;
