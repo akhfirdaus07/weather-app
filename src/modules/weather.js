@@ -2,9 +2,12 @@ const weather = (() => {
   function convertData(data) {
     const {
         location: { name : cityName},
-        current: {temp_c: temperature, feelslike_c: feelsLike, humidity, wind_kph: windSpeed}
+        current: {
+            temp_c: temperature, feelslike_c: feelsLike, humidity, wind_kph: windSpeed,
+            condition: {icon}
+        }
     } = data;
-    return { cityName, temperature, feelsLike, humidity, windSpeed };
+    return { cityName, icon, temperature, feelsLike, humidity, windSpeed };
   }
 
   async function getData(city) {
